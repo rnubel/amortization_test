@@ -7,5 +7,5 @@ Therefore, the only information needed to be truly kept by a line of credit appl
 
 However, for the sake of record-keeping, a set of books indicating the movement of money is desirable. And unlike the list of customer actions (which can be affected by returned payments, cancelled draws, etc), the books cannot be changed, only appended to. Therefore, if something happens which changes the past actions, we must correct the books. To do this, we can compute a delta between the current (old) state and the new (real) state.
 
-> &delta = state(billing_periods, actions', t) - state(billing_periods, actions, t)
+> &delta; = state(billing_periods, actions', t) - state(billing_periods, actions, t)
 > books_push(&delta)
