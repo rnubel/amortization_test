@@ -9,4 +9,4 @@ However, for the sake of record-keeping, a set of books indicating the movement 
 
 > &Delta; = state(billing_periods, actions', t) - state(billing_periods, actions, t)
 
-> books_push(&delta)
+> books.push(&Delta;)
