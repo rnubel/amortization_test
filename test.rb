@@ -15,6 +15,14 @@ class State
 
     State.new(diff)
   end
+
+  def inspect
+    str = ""
+    account_balances.sort.each do |acct, bal|
+      str += "#{acct}: %5.2f\t" % bal
+    end
+    str
+  end
 end
 
 class BillingPeriod
@@ -174,9 +182,10 @@ class Amortizer
 end
 
 class BookEntry
-  attr_accessor :date, :debit, :credit, :amount
-  def initialize(date, debit, credit, amount)
+  attr_accessor :date, :memo, :debit, :credit, :amount
+  def initialize(date, memo, debit, credit, amount)
     @date = date
+    @memo = memo
     @debit = debit
     @credit = credit
     @amount = amount
@@ -223,8 +232,9 @@ actions = [
 
 state2 = Amortizer.new(bps, actions).amortize
 
-puts "RESULT: "
+puts "RESULT FROM TIMELINE 1: "
 p state1
+puts "RESULT FROM TIMELINE 2: "
 p state2
-puts "DIFFERENCE: "
+puts "CORRECTION FROM TIMELINE 1 to 2: "
 p state2 - state1
