@@ -10,3 +10,7 @@ However, for the sake of record-keeping, a set of books indicating the movement 
 > &Delta; = state(billing_periods, actions', t) - state(billing_periods, actions, t)
 
 > books.push(&Delta;)
+
+But, this only works in single-entry accounting. In some sense, perhaps that meets the app's responsibility -- the app doesn't necessarily need a double-entry accounting system underpinning its works. But somewhere, perhaps in a separate accounting system, we will need an alternate method of reconciliation which presents a consistent, continuous record of transactions.
+
+Consider the state &sigma;0, right before the now-returned transaction happened, and the states &sigma;1 and &sigma;2, representing the original record of events and the new record of events. The problem is to find a path of transactions between &sigma;1 and &sigma;2. Let &sigma;1 = &sigma;0 + &Delta;1, and &sigma;2 = &sigma;0 + &Delta;2; then, &sigma;2 = &sigma;0 + &Delta;2 = &sigma;1 - &Delta;1 + &Delta;2. In other words, we cancel out all transactions after the return, and then append the transactions from the new timeline after the same point in time.
